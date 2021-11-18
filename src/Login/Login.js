@@ -56,9 +56,6 @@ export default function FullScreenDialog({ open,
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">Login
             </Typography>
-            <Button autoFocus color="inherit" onClick={handleClose}>
-              save
-            </Button>
           </Toolbar>
         </AppBar>
         <List>
@@ -79,6 +76,9 @@ export default function FullScreenDialog({ open,
               />
                 : ""
               }
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginRight: '30px' }}>
+                <Button autoFocus color="inherit">Next</Button>
+              </div>
             </div>
             <div className="col-md-6">
               <div className="sign-up">

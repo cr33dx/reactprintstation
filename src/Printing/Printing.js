@@ -8,8 +8,6 @@ import Uploader from './Uploader';
 
 
 export default function Printing() {
-
-
   return (
     <div>
       <Card className="text-white">
@@ -18,9 +16,9 @@ export default function Printing() {
           <Card.Title className="about-title">PRINTING</Card.Title>
         </Card.ImgOverlay>
       </Card>
-      <div className="uploader-container">
+      {/* <div className="uploader-container">
         <Uploader />
-      </div>
+      </div> */}
       <div className="file-selector">
         {/* <SelectorTools /> */}
         <Customise />

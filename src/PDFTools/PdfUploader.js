@@ -19,6 +19,8 @@ export default function PdfUploader() {
             <Card className="customize-card">
               <Card.Body>
                 <Card.Title>PDF Enhancer</Card.Title>
+                <Card.Text>Page : Page</Card.Text>
+                <input type="file" />
                 {/* <View style={styles.container}>
                 <Pdf
                   source={source}
@@ -41,8 +43,10 @@ export default function PdfUploader() {
             <Card className="customize-card">
               <Card.Body>
                 <Card.Title>Compress PDF</Card.Title>
-                <Card.Text>1 Page : 0.75/Page</Card.Text>
-                <Card.Text>Total Page : 10</Card.Text>
+                <Card.Text>Page : Page</Card.Text>
+                <input type="file" />
+                {/* <Card.Text>1 Page : 0.75/Page</Card.Text>
+                <Card.Text>Total Page : 10</Card.Text> */}
               </Card.Body>
               <Card.Footer>
                 <small className="text-muted">Total Amount: 200</small>
@@ -51,8 +55,10 @@ export default function PdfUploader() {
             <Card className="customize-card">
               <Card.Body>
                 <Card.Title>Merge PDF</Card.Title>
-                <Card.Text>1 Page : 0.75/Page</Card.Text>
-                <Card.Text>Total Page : 10</Card.Text>
+                <Card.Text>Page : Page</Card.Text>
+                <input type="file" />
+                {/* <Card.Text>1 Page : 0.75/Page</Card.Text>
+                <Card.Text>Total Page : 10</Card.Text> */}
               </Card.Body>
               <Card.Footer>
                 <small className="text-muted">Total Amount: 200</small>
@@ -65,8 +71,10 @@ export default function PdfUploader() {
             <Card className="customize-card">
               <Card.Body>
                 <Card.Title>Split PDF</Card.Title>
-                <Card.Text>1 Page : 0.75/Page</Card.Text>
-                <Card.Text>Total Page : 10</Card.Text>
+                <Card.Text>Page : Page</Card.Text>
+                <input type="file" />
+                {/* <Card.Text>1 Page : 0.75/Page</Card.Text>
+                <Card.Text>Total Page : 10</Card.Text> */}
               </Card.Body>
               <Card.Footer>
                 <small className="text-muted">Total Amount: 200</small>
@@ -75,8 +83,10 @@ export default function PdfUploader() {
             <Card className="customize-card">
               <Card.Body>
                 <Card.Title>Unlock PDF</Card.Title>
-                <Card.Text>1 Page : 0.75/Page</Card.Text>
-                <Card.Text>Total Page : 10</Card.Text>
+                <Card.Text>Page : Page</Card.Text>
+                <input type="file" />
+                {/* <Card.Text>1 Page : 0.75/Page</Card.Text>
+                <Card.Text>Total Page : 10</Card.Text> */}
               </Card.Body>
               <Card.Footer>
                 <small className="text-muted">Total Amount: 200</small>

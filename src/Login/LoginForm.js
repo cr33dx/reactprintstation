@@ -1,14 +1,34 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Divider from '@mui/material/Divider';
 import './Login.css'
 import { Form, Card, Button } from 'react-bootstrap';
 
 export default function LoginForm({
   handleSubmit,
-  account,
-  setAccount
 }) {
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  const onChangeHandler = (fieldName, value) => {
+    if (fieldName === "email") {
+      setEmail(value);
+    }
+    else if (fieldName === "password") {
+      setPassword(value);
+    }
+  }
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    if (password.trim() === "" || email.trim() == "") {
+      return ("required both field");
+    }
+    else {
+      return (password + " " + email);
+      setPassword("");
+      setEmail("");
+    }
+  }
   return (
     <div>
       <div className="login">
@@ -19,17 +39,22 @@ export default function LoginForm({
             <div className="form-content">
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control type="email" placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => { onChangeHandler("email", e.target.value) }} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control type="password" placeholder="Password"
+                  value={password}
+                  onChange={(e) => { onChangeHandler("password", e.target.value) }}
+                />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Remember Me" />
               </Form.Group>
               <div className="submit">
-                <Button variant="primary" type="submit" >
+                <Button variant="primary" type="submit" onClick={onSubmitHandler}>
                   Submit
                 </Button>
               </div>

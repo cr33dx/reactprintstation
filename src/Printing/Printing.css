@@ -10,6 +10,14 @@
  flex-direction: column;
  align-items: center;
 }
+.upload-btn{
+  border:'1 px solid black';
+  background-color: #b60b0b;
+  
+}
+.upload-btn :hover{
+  background-color: #707adf;
+}
 .doc-image{
   margin-bottom: 20px;
 }
@@ -39,4 +47,29 @@ margin: 10px;
   /* display: grid;
   grid-template-columns: repeat(3, 1fr); */
 
+}
+.input-file{
+  padding:5px 10px;
+  background:#00ad2d;
+  border:1px solid #00ad2d;
+  position:relative;
+  color:#fff;
+  border-radius:30px;
+  text-align:center;
+  cursor:pointer;
+   align-items: center;
+  
+}
+.hide_file {
+    position: absolute;
+    z-index: 1000;
+    opacity: 0;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    height: 100%;
+    font-size: 24px;
+    width: 100%;
+   
+    
 }
