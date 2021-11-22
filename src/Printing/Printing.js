@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 import Footer from '../Footer/Footer';
 import Image from '../images/printing-man.jpg';
 import Customise from './Customise';
-import SelectorTools from './SelectorTools';
+// import SelectorTools from './SelectorTools';
 import Uploader from './Uploader';
 import { getNumPages } from '../utils/utils';
 

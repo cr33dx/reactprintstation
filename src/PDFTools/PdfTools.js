@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap';
 import './PdfTools.css';
 import { Typography } from '@mui/material';
 import PdfUploader from './PdfUploader';
+import Footer from '../Footer/Footer';
 
 export default function PdfTools() {
   return (
@@ -16,6 +17,9 @@ export default function PdfTools() {
       </Card>
       <div className="second-content">
         <PdfUploader />
+      </div>
+      <div >
+        <Footer />
       </div>
     </div>
   )

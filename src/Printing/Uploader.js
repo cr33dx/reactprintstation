@@ -3,16 +3,17 @@ import './Printing.css'
 import Image2 from '../images/printicon2.png';
 
 
+
 export default function Uploader({ setFile }) {
   const inputFileRef = useRef(null)
 
   return (
     <div>
-      {/* <div className="uploader-content"> */}
-      {/* <div className="doc-image">
+      <div className="uploader-content">
+        <div className="doc-image">
           <img src={Image2} alt=" print" width="300px" height="250px" />
-        </div> */}
-      <button
+        </div>
+        {/* <button
         className="upload-btn"
         onClick={() => {
           // Single File Upload
@@ -26,24 +27,25 @@ export default function Uploader({ setFile }) {
         }}
       >
         Click to Upload
-      </button>
-      <div>
-        <input
-          style={{ display: 'none' }}
-          type="file"
-          onChange={e => {
-            setFile(e)
-          }}
-          ref={inputFileRef}
-        />
-        <button onClick={e => inputFileRef.current.click()}>
-          Upload
+      </button> */}
+        <div>
+          <input
+            style={{ display: 'none' }}
+            type="file"
+            multiple
+            accept=".jpeg, .pdf, .png, .jpg, .svg, .ppt, .doc"
+            onChange={e => {
+              setFile(e)
+            }}
+            ref={inputFileRef}
+          />
+          <button onClick={e => inputFileRef.current.click()}>
+            Upload
           </button>
 
-        <p class="fileTypeError">Please Select A PDF File Only</p>
+          <p class="fileTypeError">Please Select A PDF File Only</p>
+        </div>
       </div>
-
-
-    // </div>
+    </div>
   )
 }

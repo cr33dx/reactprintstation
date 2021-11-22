@@ -1,69 +1,98 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Divider from '@mui/material/Divider';
 import './Login.css'
 import { Form, Card, Button } from 'react-bootstrap';
+import { TextField } from '@mui/material';
 
 export default function LoginForm({
   handleSubmit,
 }) {
+  const [formError, setFormError] = useState([]);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  const onChangeHandler = (fieldName, value) => {
-    if (fieldName === "email") {
-      setEmail(value);
+  const handleSubmitForm = (e) => {
+    const errors = [];
+    if (email === "") {
+      errors.push("email");
     }
-    else if (fieldName === "password") {
-      setPassword(value);
+    if (password === "") {
+      errors.push("password");
     }
-  }
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-    if (password.trim() === "" || email.trim() == "") {
-      return ("required both field");
-    }
-    else {
-      return (password + " " + email);
-      setPassword("");
-      setEmail("");
-    }
-  }
+    setFormError(errors);
+  };
+  // const [enabled, setEnabled] = useState(false);
+  // // const inform = { email, password };
+  // useEffect(() => {
+  //   if ( === "") {
+  //     setEnabled(true);
+  //   } else {
+  //     setEnabled(false);
+  //   }
+  // }, []);
   return (
-    <div>
-      <div className="login">
-        <Form>
-          <Card className="login-card">
-            <h3><b>LOGIN FORM</b></h3>
-            <Divider />
-            <div className="form-content">
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+
+    <div className="login">
+      <Form>
+        <Card className="login-card">
+          <h3><b>LOGIN FORM</b></h3>
+          <Divider />
+          <div className="form-content">
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <div className="field-content">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email"
+                <TextField type="email" placeholder="Enter email"
+                  fullWidth
+                  size="small"
                   value={email}
-                  onChange={(e) => { onChangeHandler("email", e.target.value) }} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password"
-                  value={password}
-                  onChange={(e) => { onChangeHandler("password", e.target.value) }}
+                  onChange={(e) => setEmail(e.target.value)}
+                  error={formError.includes("email")}
+                  helperText={
+                    formError.includes("email") ? "Email is Required" : ""
+                  }
                 />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Remember Me" />
-              </Form.Group>
-              <div className="submit">
-                <Button variant="primary" type="submit" onClick={onSubmitHandler}>
-                  Submit
-                </Button>
               </div>
-              <Form.Label className="forget-content">Forget your Password?</Form.Label>
-              <h5 className="sign" onClick={handleSubmit}>Sign Up</h5>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <TextField type="password" placeholder="Password"
+                fullWidth
+                size="small"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                error={formError.includes("password")}
+                helperText={
+                  formError.includes("password") ? "Password is Required" : ""
+                }
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="Remember Me" />
+            </Form.Group>
+            <div className="submit">
+              <Button variant="primary" onClick={handleSubmitForm}>
+                <a href="/track" className="button-link">Log In</a>
+              </Button>
             </div>
-          </Card>
-        </Form>
-      </div>
+            <Form.Label className="forget-content" >
+              <a href="/forget" className="forget-link">Forget your Password?</a>
+            </Form.Label>
+            <h5 className="sign" onClick={handleSubmit}>Sign Up</h5>
+          </div>
+        </Card>
+      </Form>
     </div>
+
   )
 }
+
+// {enabled ? (
+//                   <Button disabled type="submit" variant="contained" size="large">
+//                     Submit
+//                   </Button>
+//                 ) : ( 
+// <Button variant="primary" onClick={handleSubmitForm}>
+//   <a href="/track" className="button-link">Log In</a>
+// </Button>
+// )} 
