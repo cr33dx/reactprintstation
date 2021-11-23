@@ -13,28 +13,32 @@ export default function LoginForm({
   const [email, setEmail] = useState("");
 
   const handleSubmitForm = (e) => {
-    const errors = [];
+    e.preventDefault()
+    //Make Api Call to backend to verify if user creds were correct.
+    // If correct redirect user to tracking page
+    // Else error it
+    const errors = []
     if (email === "") {
       errors.push("email");
     }
     if (password === "") {
       errors.push("password");
     }
-    setFormError(errors);
+    let userVerified
+    if (email === "test@test.com" && password === "test"){
+      userVerified = true
+    }else {
+      errors.push("invalid-login")
+    }
+    setFormError(errors)
+    if (userVerified){
+      window.location.href = "http://localhost:3000/track"
+    }
   };
-  // const [enabled, setEnabled] = useState(false);
-  // // const inform = { email, password };
-  // useEffect(() => {
-  //   if ( === "") {
-  //     setEnabled(true);
-  //   } else {
-  //     setEnabled(false);
-  //   }
-  // }, []);
   return (
 
     <div className="login">
-      <Form>
+      <Form onSubmit = {handleSubmitForm}>
         <Card className="login-card">
           <h3><b>LOGIN FORM</b></h3>
           <Divider />
@@ -71,12 +75,11 @@ export default function LoginForm({
               <Form.Check type="checkbox" label="Remember Me" />
             </Form.Group>
             <div className="submit">
-              <Button variant="primary" onClick={handleSubmitForm}>
-                <a href="/track" className="button-link">Log In</a>
-              </Button>
+              <input type = "submit"></input>
             </div>
+            {formError.includes("invalid-login")?<div>Invalid login or password</div>:""}
             <Form.Label className="forget-content" >
-              <a href="/forget" className="forget-link">Forget your Password?</a>
+              <a href="/forget-password" className="forget-link">Forget your Password?</a>
             </Form.Label>
             <h5 className="sign" onClick={handleSubmit}>Sign Up</h5>
           </div>
@@ -86,13 +89,3 @@ export default function LoginForm({
 
   )
 }
-
-// {enabled ? (
-//                   <Button disabled type="submit" variant="contained" size="large">
-//                     Submit
-//                   </Button>
-//                 ) : ( 
-// <Button variant="primary" onClick={handleSubmitForm}>
-//   <a href="/track" className="button-link">Log In</a>
-// </Button>
-// )} 

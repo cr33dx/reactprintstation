@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Forget from '../Login/Forget'
 import About from '../AboutUS/About';
 import PdfTools from '../PDFTools/PdfTools';
 import Printing from '../Printing/Printing';
@@ -73,6 +74,9 @@ export default function NavbarContent() {
       </div>
       <div>
         <Switch>
+          <Route path="/forget-password">
+            <Forget />
+          </Route>          
           <Route path="/about">
             <About />
           </Route>
